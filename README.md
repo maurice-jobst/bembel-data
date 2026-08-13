@@ -38,7 +38,7 @@ keine Abhängigkeiten.
 | Ordner | Inhalt | Schema | Status |
 |---|---|---|---|
 | `data/wasserhaeuschen/` | Frankfurts Kiosk-Kultur: ein JSON pro Wasserhäuschen | [`wasserhaeuschen.schema.json`](schemas/wasserhaeuschen.schema.json) | im Aufbau |
-| `data/ebbelwei/` | Traditionelle Apfelwein-Wirtschaften | [`ebbelwei.schema.json`](schemas/ebbelwei.schema.json) | geplant |
+| `data/ebbelwei/` | Traditionelle Apfelwein-Wirtschaften | [`ebbelwei.schema.json`](schemas/ebbelwei.schema.json) | im Aufbau |
 | `data/bewertungen/` | Bewertungen, eine Datei pro Eintrag und GitHub-Account | [`bewertung.schema.json`](schemas/bewertung.schema.json) | im Aufbau |
 
 ## 🔁 Der Weg eines Beitrags
@@ -110,11 +110,20 @@ python3 scripts/check_authorship.py --author "$(gh api user --jq .login)" \
 
 ## 🚚 Wie die Daten in die App kommen
 
-Releases dieses Repos sind versionierte Daten-Bundles. Die App lädt sie per
-Conditional GET (BEMBEL-Ticket
-[BEM-S11](https://github.com/maurice-jobst/bembel/issues/46)); ein Snapshot ist
-in der App gebündelt, damit alles offline funktioniert. Die CI rechnet die
-aggregierten Bewertungen hier aus, bevor ein Release entsteht.
+Releases dieses Repos sind versionierte Daten-Bundles. Gebaut wird jedes Bundle
+von [`scripts/build_bundle.py`](scripts/build_bundle.py) — aggregierte
+Bewertungen, Provenienz aus der Git-Historie, Abdeckung je Stadtteil, alles aus
+dem Repo selbst, byte-deterministisch. Nach jedem Merge auf `main`
+veröffentlicht die CI das Ergebnis auf den Branch
+[`dist`](../../tree/dist); die App lädt es von dort per Conditional GET
+(BEMBEL-Ticket [BEM-S11](https://github.com/maurice-jobst/bembel/issues/46)):
+
+    https://raw.githubusercontent.com/maurice-jobst/bembel-data/dist/bembel-data.json
+
+Ein Snapshot ist in der App gebündelt, damit alles offline funktioniert.
+Aggregierte Bewertungen werden hier in der CI berechnet, nicht von einem
+Server. Es gibt keinen Server. Wie die App zurück ins Repo verlinkt, steht in
+[docs/app-funnel.md](docs/app-funnel.md).
 
 ## ❓ Häufige Fragen
 

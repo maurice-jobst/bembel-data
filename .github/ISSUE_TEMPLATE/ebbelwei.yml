@@ -1,0 +1,35 @@
+name: "🍎 Ebbelwei-Wirtschaft melden"
+description: "Eine Apfelwein-Wirtschaft, die noch fehlt — wir machen einen Eintrag daraus."
+title: "[Ebbelwei] "
+labels: ["neuer-eintrag", "ebbelwei"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "z. B. Zum Gemalten Haus"
+    validations:
+      required: true
+  - type: input
+    id: adresse
+    attributes:
+      label: Adresse
+      description: Straße mit Hausnummer, PLZ, Stadt
+      placeholder: "Schweizer Straße 67, 60594 Frankfurt am Main"
+    validations:
+      required: true
+  - type: input
+    id: quelle
+    attributes:
+      label: Quelle
+      description: Ein Link, der die Angaben belegt (Website, Presse, OSM …)
+      placeholder: "https://…"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: "Garten, Saison, Eigenkelterei, Handkäs, Schoppen vom Fass — Fakten, keine Werbung."
+    validations:
+      required: false
