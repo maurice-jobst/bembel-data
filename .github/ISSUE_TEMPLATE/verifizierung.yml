@@ -1,0 +1,37 @@
+name: "✅ Eintrag verifizieren oder korrigieren"
+description: "Du warst da oder hast eine bessere Quelle — sag uns, was stimmt."
+title: "[Verifizierung] "
+labels: ["verifizierung"]
+body:
+  - type: input
+    id: eintrag
+    attributes:
+      label: Eintrag-ID
+      description: "Steht in der App unter dem Eintrag; die App füllt das Feld selbst aus."
+      placeholder: "yok-yok"
+    validations:
+      required: true
+  - type: dropdown
+    id: art
+    attributes:
+      label: Worum geht es?
+      options:
+        - "Ich war da — die Angaben stimmen"
+        - "Etwas stimmt nicht mehr"
+        - "Der Laden gibt es nicht mehr"
+    validations:
+      required: true
+  - type: input
+    id: quelle
+    attributes:
+      label: Quelle
+      description: "Link, der es belegt. Eigener Besuch: schreib \"vor Ort geprüft\" und das Datum."
+      placeholder: "https://… oder: vor Ort geprüft am 2026-08-13"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+    validations:
+      required: false

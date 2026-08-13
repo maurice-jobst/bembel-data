@@ -43,6 +43,14 @@ selbst abgegeben“ ist genau so viel wert wie ihre Ausnahmen.
 Bewertungen sind ehrlich, konkret, ohne Beleidigungen und ohne Werbung —
 Maintainer lehnen im Review ab, was das verletzt.
 
+## Beiträge aus der App
+
+Wer „Bewerten“ oder „verifizieren“ in der BEMBEL-App tippt, landet mit
+vorausgefüllten Feldern hier — als ganz normaler Pull Request oder Issue aus
+dem eigenen Account. Dieselben Regeln, derselbe Review. Die genauen Vorlagen
+stehen in [docs/app-funnel.md](docs/app-funnel.md); wer ein Formularfeld
+umbenennt, ändert damit stillschweigend den Trichter der App.
+
 Lokal vorab prüfen:
 
 ```bash

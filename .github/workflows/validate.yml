@@ -12,3 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: python3 scripts/validate.py
+      - name: Trichter-Vertrag prüfen
+        run: python3 scripts/check_funnel.py
