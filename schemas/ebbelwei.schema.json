@@ -18,11 +18,30 @@
         "city": { "type": "string" }
       }
     },
+    "district": {
+      "type": "string",
+      "description": "Stadtteil, wie ihn die Stadt schreibt (z. B. \"Sachsenhausen\") — Grundlage der Abdeckungsanzeige in der App"
+    },
     "latitude": { "type": "number", "minimum": 49.5, "maximum": 50.8 },
     "longitude": { "type": "number", "minimum": 7.8, "maximum": 9.5 },
     "garden": { "type": "boolean", "description": "Has a garden / outdoor season" },
     "gardenSeason": { "type": "string", "description": "e.g. \"April–Oktober\", when documented" },
     "eigenkelterei": { "type": "boolean", "description": "Presses its own Apfelwein" },
+    "features": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "garten",
+          "eigenkelterei",
+          "historisch",
+          "sitzplaetze",
+          "handkaes",
+          "schoppen-vom-fass"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Merkmale. \"garten\" und \"eigenkelterei\" leitet der Bundle-Bau zusätzlich aus den Feldern garden/eigenkelterei ab."
+    },
     "since": { "type": "integer", "minimum": 1600 },
     "note": { "type": "string", "maxLength": 280 },
     "sources": {
