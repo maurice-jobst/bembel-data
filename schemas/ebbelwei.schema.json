@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/maurice-jobst/bembel-data/main/schemas/ebbelwei.schema.json",
+  "title": "Ebbelwei-Wirtschaft",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "address", "latitude", "longitude", "sources", "verified"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "address": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["street", "postalCode", "city"],
+      "properties": {
+        "street": { "type": "string" },
+        "postalCode": { "type": "string", "pattern": "^[0-9]{5}$" },
+        "city": { "type": "string" }
+      }
+    },
+    "latitude": { "type": "number", "minimum": 49.5, "maximum": 50.8 },
+    "longitude": { "type": "number", "minimum": 7.8, "maximum": 9.5 },
+    "garden": { "type": "boolean", "description": "Has a garden / outdoor season" },
+    "gardenSeason": { "type": "string", "description": "e.g. \"April–Oktober\", when documented" },
+    "eigenkelterei": { "type": "boolean", "description": "Presses its own Apfelwein" },
+    "since": { "type": "integer", "minimum": 1600 },
+    "note": { "type": "string", "maxLength": 280 },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "format": "uri" }
+    },
+    "verified": { "type": "boolean" }
+  }
+}

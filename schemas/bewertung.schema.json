@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/maurice-jobst/bembel-data/main/schemas/bewertung.schema.json",
+  "title": "Bewertung",
+  "description": "One rating per entry per GitHub account: data/bewertungen/<entry-id>/<github-login>.json. The PR author must match the login in the file name — CI checks this.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entry", "login", "stars", "date"],
+  "properties": {
+    "entry": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "id of the rated entry" },
+    "login": { "type": "string", "minLength": 1, "description": "GitHub login of the rater" },
+    "stars": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "date": { "type": "string", "format": "date" },
+    "comment": {
+      "type": "string",
+      "maxLength": 280,
+      "description": "Optional, one honest sentence. No slurs, no doxxing, no ads — maintainers reject in review."
+    }
+  }
+}

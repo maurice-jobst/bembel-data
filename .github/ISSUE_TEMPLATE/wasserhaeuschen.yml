@@ -1,0 +1,35 @@
+name: "🥤 Wasserhäuschen melden"
+description: "Ein Wasserhäuschen, das noch fehlt — wir machen einen Eintrag daraus."
+title: "[Wasserhäuschen] "
+labels: ["neuer-eintrag", "wasserhaeuschen"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "z. B. City Kiosk Yok-Yok"
+    validations:
+      required: true
+  - type: input
+    id: adresse
+    attributes:
+      label: Adresse
+      description: Straße mit Hausnummer, PLZ, Stadt
+      placeholder: "Münchener Straße 32, 60329 Frankfurt am Main"
+    validations:
+      required: true
+  - type: input
+    id: quelle
+    attributes:
+      label: Quelle
+      description: Ein Link, der die Angaben belegt (Website, Presse, OSM …)
+      placeholder: "https://…"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: "Öffnungszeiten, Besonderheiten (Sitzplätze, Eigenmarke, Kunst, historisch …) — Fakten, keine Werbung."
+    validations:
+      required: false

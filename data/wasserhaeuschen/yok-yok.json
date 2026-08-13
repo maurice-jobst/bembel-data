@@ -1,0 +1,19 @@
+{
+  "id": "yok-yok",
+  "name": "City Kiosk Yok-Yok",
+  "address": {
+    "street": "Münchener Straße 32",
+    "postalCode": "60329",
+    "city": "Frankfurt am Main"
+  },
+  "latitude": 50.10761,
+  "longitude": 8.66833,
+  "features": ["eigenmarke", "kunst", "spaeti"],
+  "note": "Bahnhofsviertel-Institution von Nazim Alemdar, mit eigenem YokYok-Bier und zweitem Standort in der Fahrgasse.",
+  "sources": [
+    "https://frankfurt.de/service-und-rathaus/presse/texte-und-kampagnen/wir-lieben-das-viertel/nazim-alemdar-kiosk-yok-yok",
+    "https://www.gewerbeverein-bahnhofsviertel-frankfurt.de/kiosk-yok-yok",
+    "https://www.openstreetmap.org/search?query=M%C3%BCnchener%20Stra%C3%9Fe%2032%2C%2060329%20Frankfurt"
+  ],
+  "verified": false
+}
