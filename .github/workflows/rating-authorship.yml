@@ -1,0 +1,28 @@
+name: Rating authorship
+
+on:
+  pull_request:
+    paths:
+      - "data/bewertungen/**"
+
+permissions:
+  contents: read
+
+jobs:
+  authorship:
+    name: A rating file must be named after the PR author
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Collect the paths this PR touches
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git diff --name-only "$(git merge-base "$BASE" "$HEAD")" "$HEAD" | tee changed.txt
+      - name: Check
+        env:
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: xargs -r -a changed.txt python3 scripts/check_authorship.py --author "$AUTHOR"
