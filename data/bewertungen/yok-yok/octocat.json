@@ -1,0 +1,7 @@
+{
+  "entry": "yok-yok",
+  "login": "octocat",
+  "stars": 5,
+  "date": "2026-08-13",
+  "comment": "Deliberate negative test — this PR must be rejected by CI."
+}
