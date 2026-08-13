@@ -6,6 +6,7 @@
     "postalCode": "60329",
     "city": "Frankfurt am Main"
   },
+  "district": "Bahnhofsviertel",
   "latitude": 50.10761,
   "longitude": 8.66833,
   "features": ["eigenmarke", "kunst", "spaeti"],

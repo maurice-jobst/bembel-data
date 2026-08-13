@@ -22,6 +22,10 @@
         "city": { "type": "string" }
       }
     },
+    "district": {
+      "type": "string",
+      "description": "Stadtteil, wie ihn die Stadt schreibt (z. B. \"Bahnhofsviertel\") — Grundlage der Abdeckungsanzeige in der App"
+    },
     "latitude": { "type": "number", "minimum": 49.5, "maximum": 50.8 },
     "longitude": { "type": "number", "minimum": 7.8, "maximum": 9.5 },
     "openingHours": {
@@ -36,9 +40,20 @@
     "features": {
       "type": "array",
       "items": {
-        "enum": ["sitzplaetze", "eigenmarke", "kunst", "spaeti", "historisch", "trinkhalle-klassisch"]
+        "enum": [
+          "sitzplaetze",
+          "eigenmarke",
+          "kunst",
+          "spaeti",
+          "historisch",
+          "trinkhalle-klassisch",
+          "spaet-offen",
+          "baenke-draussen",
+          "ebbelwei"
+        ]
       },
-      "uniqueItems": true
+      "uniqueItems": true,
+      "description": "Merkmale — in der App die Hauptnavigation, nicht ein Filter im Untermenü"
     },
     "note": {
       "type": "string",

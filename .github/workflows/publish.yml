@@ -1,0 +1,60 @@
+name: Bundle veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Daten prüfen
+        run: python3 scripts/validate.py
+
+      - name: Bundle bauen
+        run: python3 scripts/build_bundle.py
+
+      - name: dist-Branch aktualisieren
+        run: |
+          set -euo pipefail
+          git config user.name "bembel-data"
+          git config user.email "noreply@github.com"
+          work="$RUNNER_TEMP/dist"
+          if git ls-remote --exit-code --heads origin dist >/dev/null 2>&1; then
+            git fetch origin dist
+            git worktree add "$work" origin/dist
+            git -C "$work" checkout -B dist
+          else
+            git worktree add --detach "$work"
+            git -C "$work" checkout --orphan dist
+            git -C "$work" rm -rf . >/dev/null 2>&1 || true
+          fi
+          cp dist/bembel-data.json "$work/bembel-data.json"
+          git -C "$work" add bembel-data.json
+          if git -C "$work" diff --cached --quiet; then
+            echo "Bundle unverändert — kein Push."
+            exit 0
+          fi
+          git -C "$work" commit -m "Bundle für ${GITHUB_SHA:0:7}"
+          git -C "$work" push origin dist
+
+      - name: Release-Asset anhängen
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$TAG" dist/bembel-data.json --clobber
