@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/maurice-jobst/bembel-data/main/schemas/bewertung.schema.json",
   "title": "Bewertung",
-  "description": "One rating per entry per GitHub account: data/bewertungen/<entry-id>/<github-login>.json. The PR author must match the login in the file name — CI checks this.",
+  "description": "One rating per entry per GitHub account: data/bewertungen/<entry-id>/<github-login>.json. The PR author must match the login in the file name — scripts/check_authorship.py enforces this in CI on every pull request.",
   "type": "object",
   "additionalProperties": false,
   "required": ["entry", "login", "stars", "date"],

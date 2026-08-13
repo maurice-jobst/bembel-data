@@ -1,5 +1,10 @@
 blank_issues_enabled: true
 contact_links:
+  - name: "⭐ Bewertung abgeben"
+    url: https://github.com/maurice-jobst/bembel-data/new/main?filename=data/bewertungen/yok-yok/DEIN-LOGIN.json
+    about: >-
+      Bewertungen kommen aus deinem eigenen Account — dafür gibt es kein
+      Issue-Formular. Datei anlegen, PR stellen, fertig (siehe CONTRIBUTING.md).
   - name: BEMBEL App
     url: https://github.com/maurice-jobst/bembel
     about: Fragen zur App selbst bitte drüben stellen.

@@ -33,10 +33,23 @@ Eine Datei pro Eintrag und GitHub-Account:
 }
 ```
 
-Der PR muss von dem Account kommen, dessen Login im Dateinamen steht.
+**Der PR muss von dem Account kommen, dessen Login im Dateinamen steht** —
+`scripts/check_authorship.py` prüft das in der CI und lehnt jeden PR ab, der
+eine fremde Bewertungsdatei anfasst. Es gibt keinen Weg, stellvertretend zu
+bewerten, auch nicht für Maintainer: die Zusage „eine Bewertung, ein Konto,
+selbst abgegeben“ ist genau so viel wert wie ihre Ausnahmen.
+
+Ändern oder zurückziehen geht jederzeit per neuem PR auf die eigene Datei.
 Bewertungen sind ehrlich, konkret, ohne Beleidigungen und ohne Werbung —
-Maintainer lehnen im Review ab, was das verletzt. Ändern oder zurückziehen
-geht jederzeit per neuem PR.
+Maintainer lehnen im Review ab, was das verletzt.
+
+Lokal vorab prüfen:
+
+```bash
+python3 scripts/validate.py
+python3 scripts/check_authorship.py --author "$(gh api user --jq .login)" \
+  $(git diff --name-only origin/main...HEAD)
+```
 
 ## Was hier nicht reinkommt
 
