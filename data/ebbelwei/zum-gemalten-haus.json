@@ -1,0 +1,20 @@
+{
+  "id": "zum-gemalten-haus",
+  "name": "Zum Gemalten Haus",
+  "address": {
+    "street": "Schweizer Straße 67",
+    "postalCode": "60594",
+    "city": "Frankfurt am Main"
+  },
+  "district": "Sachsenhausen-Nord",
+  "latitude": 50.1007042,
+  "longitude": 8.6818571,
+  "features": ["handkaes"],
+  "since": 1936,
+  "note": "Apfelweinlokal auf der Schweizer Straße in Sachsenhausen, seit 1936.",
+  "sources": [
+    "https://www.zumgemaltenhaus.de/",
+    "https://www.openstreetmap.org/node/504316685"
+  ],
+  "verified": false
+}

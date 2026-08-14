@@ -1,0 +1,21 @@
+{
+  "id": "apfelwein-solzer",
+  "name": "Apfelwein Solzer",
+  "address": {
+    "street": "Berger Straße 260",
+    "postalCode": "60385",
+    "city": "Frankfurt am Main"
+  },
+  "district": "Bornheim",
+  "latitude": 50.1284287,
+  "longitude": 8.7111799,
+  "garden": true,
+  "eigenkelterei": true,
+  "since": 1893,
+  "note": "Seit 1893 von der Familie Solzer geführt, mit selbstgekeltertem Apfelwein und Sommergarten an der Berger Straße.",
+  "sources": [
+    "https://www.apfelwein-solzer.de/",
+    "https://www.openstreetmap.org/node/1130970911"
+  ],
+  "verified": false
+}

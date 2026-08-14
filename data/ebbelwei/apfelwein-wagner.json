@@ -1,0 +1,19 @@
+{
+  "id": "apfelwein-wagner",
+  "name": "Apfelwein Wagner",
+  "address": {
+    "street": "Schweizer Straße 71",
+    "postalCode": "60594",
+    "city": "Frankfurt am Main"
+  },
+  "district": "Sachsenhausen-Nord",
+  "latitude": 50.1005013,
+  "longitude": 8.681986,
+  "since": 1931,
+  "note": "Seit 1931 im Familienbesitz geführtes Traditionslokal auf der Schweizer Straße.",
+  "sources": [
+    "https://www.apfelwein-wagner.com/",
+    "https://www.openstreetmap.org/node/12067930916"
+  ],
+  "verified": false
+}

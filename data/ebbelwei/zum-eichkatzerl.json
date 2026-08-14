@@ -1,0 +1,20 @@
+{
+  "id": "zum-eichkatzerl",
+  "name": "Zum Eichkatzerl",
+  "address": {
+    "street": "Dreieichstraße 29",
+    "postalCode": "60594",
+    "city": "Frankfurt am Main"
+  },
+  "district": "Sachsenhausen-Nord",
+  "latitude": 50.1051652,
+  "longitude": 8.6925683,
+  "garden": true,
+  "features": ["historisch"],
+  "note": "Erste Presseerwähnung 1880 als Heckenwirtschaft; Sommergarten mit 120 Plätzen.",
+  "sources": [
+    "https://www.eichkatzerl.de/",
+    "https://www.openstreetmap.org/node/2683677757"
+  ],
+  "verified": false
+}

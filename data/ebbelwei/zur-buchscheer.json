@@ -1,0 +1,22 @@
+{
+  "id": "zur-buchscheer",
+  "name": "Zur Buchscheer",
+  "address": {
+    "street": "Schwarzsteinkautweg 17",
+    "postalCode": "60598",
+    "city": "Frankfurt am Main"
+  },
+  "district": "Sachsenhausen-Süd",
+  "latitude": 50.0846042,
+  "longitude": 8.6720766,
+  "garden": true,
+  "eigenkelterei": true,
+  "features": ["historisch", "handkaes"],
+  "since": 1876,
+  "note": "Familienbetrieb seit 1876, Apfelwein aus eigener Kelterei.",
+  "sources": [
+    "https://buchscheer.de/",
+    "https://www.openstreetmap.org/node/12228343394"
+  ],
+  "verified": false
+}
