@@ -2,8 +2,11 @@ name: Rating authorship
 
 on:
   pull_request:
-    paths:
-      - "data/bewertungen/**"
+# Kein paths-Filter: als required check muss dieser Job bei *jedem* PR
+# berichten, sonst hängt ein PR ohne Bewertungsdateien für immer auf
+# "expected". check_authorship.py ignoriert alles außerhalb von
+# data/bewertungen/, der Lauf ist also billig und immer grün, wo nichts
+# zu prüfen ist.
 
 permissions:
   contents: read

@@ -99,6 +99,7 @@ Dritte. `note` und `comment` sind ein sachlicher Satz. Details in
 | `login` im Dokument ist gleich dem Dateinamen | `validate.py` |
 | Der Dateiname einer Bewertung ist der Login des PR-Autors | [`scripts/check_authorship.py`](scripts/check_authorship.py) |
 | Höchstens eine Bewertung pro Eintrag und Konto | der Pfad selbst |
+| Nichts kommt an diesen Prüfungen vorbei nach `main` — auch kein Maintainer | Branch Protection, gesetzt von [`scripts/apply_branch_protection.sh`](scripts/apply_branch_protection.sh) |
 
 Lokal vor dem Push:
 
