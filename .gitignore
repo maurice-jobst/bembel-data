@@ -1,1 +1,3 @@
 dist/
+# local email->login table for build_bundle.py; PII, never tracked (CI uses secret BEMBEL_LOGINS)
+logins.json

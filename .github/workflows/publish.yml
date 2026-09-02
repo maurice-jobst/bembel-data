@@ -26,6 +26,9 @@ jobs:
         run: python3 scripts/validate.py
 
       - name: Bundle bauen
+        env:
+          # E-Mail -> Login für Autoren ohne noreply-Adresse; PII, darum Secret, nie im Repo.
+          BEMBEL_LOGINS: ${{ secrets.BEMBEL_LOGINS }}
         run: python3 scripts/build_bundle.py
 
       - name: dist-Branch aktualisieren
