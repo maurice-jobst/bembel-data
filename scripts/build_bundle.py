@@ -10,6 +10,7 @@ Datum von HEAD, nicht die Uhrzeit des Laufs; alle Listen sind sortiert.
 """
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -31,10 +32,20 @@ def git(*args: str) -> str:
 
 
 def load_logins() -> dict[str, str]:
-    path = ROOT / "logins.json"
-    if not path.is_file():
-        return {}
-    return {k.lower(): v for k, v in json.loads(path.read_text(encoding="utf-8")).items()}
+    """E-Mail -> GitHub-Login für Autoren ohne noreply-Adresse.
+
+    Die Tabelle ist PII und liegt nie im Repo: in der CI kommt sie aus dem
+    Secret BEMBEL_LOGINS (JSON-Objekt), lokal wahlweise aus einer
+    unversionierten logins.json (.gitignore). Fehlt beides, bleiben
+    Autoren mit Klartext-Mail ungenannt (null) — nie geraten.
+    """
+    raw = os.environ.get("BEMBEL_LOGINS", "").strip()
+    if not raw:
+        path = ROOT / "logins.json"
+        if not path.is_file():
+            return {}
+        raw = path.read_text(encoding="utf-8")
+    return {k.lower(): v for k, v in json.loads(raw).items()}
 
 
 def resolve_login(email: str, table: dict[str, str]) -> str | None:
