@@ -20,6 +20,8 @@ python3 scripts/build_bundle.py    # -> dist/bembel-data.json, deterministic per
 python3 scripts/check_authorship.py --author <login> $(git diff --name-only origin/main...HEAD)
 ```
 
+`scripts/check` runs the first three in order and stops at the first failure; run it
+before every PR. `check_authorship.py` stays in CI (it needs the PR author and the diff).
 No pip, no dependencies. All four must be green before a PR.
 
 ## Rules

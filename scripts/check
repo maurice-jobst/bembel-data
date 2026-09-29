@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Fast pre-PR check: validate.py, check_funnel.py, build_bundle.py in order,
+# stopping at the first failure. check_authorship.py stays in CI: it needs the
+# PR author and the diff. Stdlib only.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+python3 scripts/validate.py
+python3 scripts/check_funnel.py
+python3 scripts/build_bundle.py
