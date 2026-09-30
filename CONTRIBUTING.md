@@ -54,7 +54,7 @@ umbenennt, ändert damit stillschweigend den Trichter der App.
 Lokal vorab prüfen:
 
 ```bash
-python3 scripts/validate.py
+scripts/check   # validate.py, check_funnel.py und build_bundle.py der Reihe nach
 python3 scripts/check_authorship.py --author "$(gh api user --jq .login)" \
   $(git diff --name-only origin/main...HEAD)
 ```
