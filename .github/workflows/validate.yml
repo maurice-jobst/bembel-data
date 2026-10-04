@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: AGENTS.md line cap
+        run: scripts/context-cap AGENTS.md 100
       - run: python3 scripts/validate.py
       - name: Trichter-Vertrag prüfen
         run: python3 scripts/check_funnel.py
